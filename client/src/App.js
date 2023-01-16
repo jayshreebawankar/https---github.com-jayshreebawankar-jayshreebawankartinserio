@@ -1,4 +1,3 @@
-import './App.css';
 import Pokemons from './Components/Pokenmon'
 
 function App() {

@@ -14,8 +14,17 @@ const addPokemon = async(req, res, next) => {
         console.log('Create User Error : ', err);
     }
 }
-const getAllPokemons = (req, res, next) => {
-    res.send('i am best');
+
+const getAllPokemons = async (req, res, next) => {
+    try {
+        const completeData = await Pokemons.find();
+        // console.log(completeData);
+        res.json(completeData);
+    } catch (err) {
+        console.log(err);
+        // res.status(400).json('Error while getting all data');
+    }
 }
+
 exports.addPokemon = addPokemon;
 exports.getAllPokemons = getAllPokemons;

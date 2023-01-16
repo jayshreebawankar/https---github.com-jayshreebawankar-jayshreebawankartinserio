@@ -1,21 +1,22 @@
 const mongoose = require('mongoose');
-// const User = require('../model/userModel');
-const Pokemons = require('../model/pokemonModel');
+const User = require('../model/userModel');
 
 const createUser = async(req, res, next) => {
     console.log(req.body);
-    const pokemon = req.body;
-    const data = new Pokemons(pokemon);
+    const user = req.body;
+    const data = new User(user);
     try{
-        const pokemonDetails = await data.save()
-        console.log(pokemonDetails);
-        res.status(200).json(pokemonDetails);
+        const userDetails = await data.save()
+        console.log(userDetails);
+        res.status(200).json(userDetails);
     }catch(err){
         console.log('Create User Error : ', err);
     }
 }
+
 const getAllUsers = (req, res, next) => {
     res.send('i am best');
 }
+
 exports.createUser = createUser;
 exports.getAllUsers = getAllUsers;

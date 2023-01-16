@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
-const pokemons = new Schema({
+const UserSchema = new Schema({
     email: {
         type: String,
         require: [true, 'email is required'],
@@ -19,5 +19,5 @@ const pokemons = new Schema({
     },
 })
 
-const Pokemons = mongoose.model('Pokemons', pokemons);
-module.exports = Pokemons;
+const User = mongoose.model('User', UserSchema);
+module.exports = User;
